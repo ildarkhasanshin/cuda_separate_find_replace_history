@@ -119,6 +119,13 @@ class Command:
 
         app_proc(PROC_SET_FINDER_PROP, dict(find_h = f_h))
 
+    def clear_fr(self):
+        keys = ['find_replace', 'find']
+        for key in keys:
+            self.save_json(key, [], True)
+
+        msg_status(_('History of find-replace cleaned'))
+
     def on_state_findbar(self, ed_self, state, value):
         if state == 'cmd':
             if value in ('FindNext', 'FindPrev', 'FindFirst'):
@@ -130,3 +137,7 @@ class Command:
                 self.add_fr()
         elif state == 'is_rep' or (state == 'opt' and value == 'RegEx') or (state == 'focus' and value == 'edFind'):
             self.set_fr_h()
+
+    def on_state(self, ed_self, state):
+        if state == APPSTATE_CLEAR_HISTORY_FINDER:
+            self.clear_fr()

@@ -4,7 +4,7 @@ desc=By default, input-history is saved for find and replace fields. Plugin adds
 type=cudatext-plugin
 subdir=cuda_separate_find_replace_history
 homepage=https://github.com/ildarkhasanshin/cuda_separate_find_replace_history
-api=1.0.465
+api=1.0.474
 
 [item1]
 section=commands
@@ -13,4 +13,4 @@ method=remove
 
 [item2]
 section=events
-events=on_state_findbar
+events=on_state_findbar,on_state
