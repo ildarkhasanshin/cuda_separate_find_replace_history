@@ -69,7 +69,6 @@ class Command:
             data[key].append(json_data)
         with open(json_fn, mode = 'w', encoding = 'utf-8') as f:
             json.dump(data, f, indent = 2)
-        msg_status(_('Find-results for replacement updated'))
 
     def get_w_h(self):
         w_ = 600
